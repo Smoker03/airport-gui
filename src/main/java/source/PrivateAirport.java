@@ -22,12 +22,12 @@ public class PrivateAirport extends Airport {
 
     @Override
     public boolean matchCompanyByAirportName(String nameAirport) {
-        return this.getNameAirport().contains(nameAirport);
+        return this.getName().contains(nameAirport);
     }
 
     @Override
     public String showCorporates() {
-        return this.corporates.stream().map(corporate -> corporate + "\n").collect(Collectors.joining());
+        return this.corporates.stream().map(corporate -> corporate.toString()).collect(Collectors.joining());
     }
 
     @Override
@@ -37,8 +37,8 @@ public class PrivateAirport extends Airport {
 
     @Override
     public String companiesByAirportName() {
-        return "Nombre= " + this.getNameAirport()
-                + "\nCompanias que cuenta la empresa:\n" + " -" + this.getCompanies().stream().map(Company::getCompanyName).collect(Collectors.joining());
+        return "Nombre= " + this.getName()
+                + "\nCompanias que cuenta la empresa:\n" + " -" + this.getCompanies().stream().map(Company::getName).collect(Collectors.joining());
     }
 
     @Override
@@ -48,7 +48,7 @@ public class PrivateAirport extends Airport {
 
     @Override
     public String toString() {
-        return "IdAeropuerto= " + this.getIdAirport() + "| Nombre= " + this.getNameAirport() + "| Ciudad localizada= "
+        return "IdAeropuerto= " + this.getId() + "| Nombre= " + this.getName() + "| Ciudad localizada= "
                 + this.getCityLocated() + "| Pais localizado= " + this.getCountryLocated()
                 + "| Companias:\n" + this.getCompanies().stream().map(Company::toString).collect(Collectors.joining()) + "Empresas:\n "
                 + this.getCorporates().stream().map(Corporate -> Corporate.toString()).collect(Collectors.joining());
@@ -56,6 +56,6 @@ public class PrivateAirport extends Airport {
     
     @Override
     public String toStringBag() {
-        return getIdAirport() + ": " + getNameAirport() + "(Aeropuerto privado)";
+        return getId() + ": " + getName();
     }
 }

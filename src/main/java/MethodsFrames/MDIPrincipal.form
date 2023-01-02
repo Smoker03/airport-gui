@@ -12,6 +12,12 @@
         <Property name="text" type="java.lang.String" value="jMenuItem3"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JColorChooser" name="jColorChooser1">
+    </Component>
+    <Component class="javax.swing.JColorChooser" name="jColorChooser2">
+    </Component>
+    <Component class="javax.swing.JOptionPane" name="jOptionPane1">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="menuBar">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="mnuAirportManager">
@@ -35,51 +41,27 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniConsultAirportActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mniListFlightsByCompanyName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Listar vuelos por compania"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListFlightsByCompanyNameActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar companias por aeropuerto"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem7ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar todas las companias"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
-              </Events>
-            </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="mnuCorporate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Vuelos"/>
+            <Property name="text" type="java.lang.String" value="Empresas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="mniAddCorporate">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar vuelos"/>
+                <Property name="text" type="java.lang.String" value="A&#xf1;adir empresa"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAddCorporateActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mniAddFlight">
+            <MenuItem class="javax.swing.JMenuItem" name="mniShowCompanies">
               <Properties>
-                <Property name="text" type="java.lang.String" value="A&#xf1;adir vuelo"/>
+                <Property name="text" type="java.lang.String" value="Mostrar empresas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAddFlightActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniShowCompaniesActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -89,28 +71,67 @@
             <Property name="text" type="java.lang.String" value="Compa&#xf1;ias"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar vuelos por id"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem10ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar destinos"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem11ActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniAddCompany">
               <Properties>
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir compa&#xf1;ias"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAddCompanyActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mniShowCompaniesByAirportName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar compa&#xf1;ias por aeropuerto"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniShowCompaniesByAirportNameActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mnuFlights">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vuelos"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mniAddFlight">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;adir vuelo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAddFlightActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mniShowFlightsById">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar vuelos por id"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniShowFlightsByIdActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mniShowDestinations">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar destinos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniShowDestinationsActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mniShowFlights">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar vuelos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniShowFlightsActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mniListFlightsByCompanyName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar vuelos por compania"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListFlightsByCompanyNameActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -130,35 +151,17 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuCorporate">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Empresas"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mniAddCorporate">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="A&#xf1;adir empresa"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAddCorporateActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="mnuOptions">
           <Properties>
             <Property name="text" type="java.lang.String" value="Opciones"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu4ActionPerformed"/>
-          </Events>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="mniExit">
               <Properties>
                 <Property name="text" type="java.lang.String" value="salir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniExitActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -189,12 +192,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="desktopPane" alignment="0" pref="468" max="32767" attributes="0"/>
+          <Component id="desktopPane" alignment="0" pref="512" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="desktopPane" alignment="0" pref="280" max="32767" attributes="0"/>
+          <Component id="desktopPane" alignment="0" pref="281" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

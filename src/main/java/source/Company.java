@@ -7,22 +7,22 @@ import java.util.stream.Collectors;
 
 public class Company {
     
-    private final String idCompany;
-    private final String companyName;
+    private final String id;
+    private final String name;
     private final Set<Flight> flights;
 
-    public Company(String idCompany, String companyName) {
-        this.idCompany = idCompany;
-        this.companyName = companyName;
+    public Company(String id, String companyName) {
+        this.id = id;
+        this.name = companyName;
         this.flights = new HashSet<>();
     }
     
-    public String getIdCompany() {
-        return this.idCompany;
+    public String getId() {
+        return this.id;
     }
 
-    public String getCompanyName() {
-        return this.companyName;
+    public String getName() {
+        return this.name;
     }
 
     public boolean addFlight(Flight flight) {
@@ -38,9 +38,9 @@ public class Company {
 
     public String showFlightsById(String idFLights) {
         var possibleFlights = new ArrayList<Flight>();
-        for (var flights : this.flights) {
-            if (flights.getIdFlights().equals(idFLights)) {
-                possibleFlights.add(flights);
+        for (var flight : this.flights) {
+            if (flight.getIdFlights().equals(idFLights)) {
+                possibleFlights.add(flight);
             }
         }
         return "Vuelos posibles:\n" + possibleFlights.stream().map(Flight -> Flight.toString()).collect(Collectors.joining());
@@ -48,17 +48,18 @@ public class Company {
 
     public String showDestinations() {
         StringBuilder destinationsContainer = new StringBuilder();
-        for (var flights : flights) {
-            destinationsContainer.append(flights.getFlightDestination().concat("\n"));
+        for (var flight : flights) {
+            destinationsContainer.append(flight.getFlightDestination().concat("\n"));
         }
-        return "Los destinos de la compania " + getCompanyName() + " son:\n" + destinationsContainer;
+        return "Los destinos de la compania " + getName() + " son:\n" + destinationsContainer;
     }
 
+    @Override
     public String toString() {
-        return "Nombre de la compania= " + companyName + "| Vuelos disponibles: \n" + flights.stream().map(Flight -> Flight.toString()).collect(Collectors.joining());
+        return "Nombre de la compania= " + name + "| Vuelos disponibles: \n" + flights.stream().map(Flight -> Flight.toString()).collect(Collectors.joining());
     }
     
     public String toStringBag() {
-        return idCompany + ": " + companyName;
+        return id + ": " + name;
     }
 }

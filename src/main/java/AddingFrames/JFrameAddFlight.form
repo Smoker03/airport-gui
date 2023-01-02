@@ -81,12 +81,12 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
-                      <Component id="lblTitleFlights" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="315" max="-2" attributes="0"/>
+                      <Component id="lblTitleFlights" linkSize="5" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="315" max="-2" attributes="0"/>
-                      <Component id="lblCompanies" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="lblCompanies" linkSize="5" min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="6" pref="82" max="32767" attributes="0"/>
@@ -149,73 +149,44 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblTitleFlights">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="A&#xf1;adir un nuevo vuelo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblIdFlight">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Id del vuelo:"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
-          </Border>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFlightOrigin">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Vuelo de origen:"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
-          </Border>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTravelPrice">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Costo del vuelo:"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
-          </Border>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblReservedSeats">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Asientos reservados:"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
-          </Border>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblMaximumPassengers">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Maximo de pasajeros:"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
-          </Border>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblFlightDetination">
       <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="Destino del vuelo:"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
-          </Border>
-        </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[64, 22]"/>
         </Property>
@@ -232,7 +203,6 @@
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddFlightMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddFlightActionPerformed"/>
       </Events>
     </Component>
@@ -247,12 +217,10 @@
     <Component class="javax.swing.JTextField" name="txtFlightDestination">
     </Component>
     <Component class="javax.swing.JTextField" name="txtIdFlight">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdFlightActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCompanies">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Compa&#xf1;ias"/>
       </Properties>
     </Component>

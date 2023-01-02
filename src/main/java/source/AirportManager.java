@@ -1,21 +1,27 @@
 package source;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class AirportManager {
-    private final List<Airport> airports;
+    private final Set<Airport> airports;
 
     public AirportManager() {
-        this.airports = new ArrayList<>();
+        this.airports = new HashSet<>();
     }
 
     public void addAirport(Airport airport) {
         this.airports.add(airport);
     }
-
+    
+    public Set<Airport> getAirport() {
+        return this.airports;
+    }
+    
     public String consultAirport(String type) {
         boolean PublicAirport = List.of("Aeropuerto publico", "Publico", "aeropuerto publico", "publico").contains(type);
         var found = new ArrayList<Airport>();
@@ -30,18 +36,21 @@ public class AirportManager {
                 }
             }
         }
-        return found.stream().map(Airport::getNameAirport).collect(Collectors.joining());
+        return found.stream().map(Airport::getName).collect(Collectors.joining());
     }
 
     public String listFlightsByCompanyName(String companyName) {
         var companies = airports.stream().flatMap(Airport -> Airport.getCompanies().stream()).toList();
         var foundCompany = new ArrayList<Company>();
         for (var company : companies) {
-            if (Objects.equals(companyName, company.getCompanyName())) {
+            if (Objects.equals(companyName, company.getName())) {
                 foundCompany.add(company);
             }
         }
-        return foundCompany.stream().map(Company -> Company.toString() + "\n").collect(Collectors.joining());
+        return foundCompany
+                .stream()
+                .map(Company -> Company.toString() + "\n")
+                .collect(Collectors.joining());
     }
 
     public String showCompaniesByAirportName(String airport) {
@@ -51,13 +60,23 @@ public class AirportManager {
                 companiesByAirportName.add(companies);
             }
         }
-        return companiesByAirportName.stream().map(Airport::companiesByAirportName).collect(Collectors.joining());
+        return companiesByAirportName
+                .stream()
+                .map(Airport::companiesByAirportName)
+                .collect(Collectors.joining());
     }
 
     public String showCorporates() {
-        var publicAirports = this.airports.stream().filter(Airport::isPrivate).map(Airport::showCorporates).collect(Collectors.joining());
-        var privateAirports = this.airports.stream().filter(airport -> !airport.isPrivate()).map(Airport::showCorporates).collect(Collectors.joining());
-
+        var publicAirports = this.airports.stream()
+                .filter(Airport::isPrivate)
+                .map(Airport::showCorporates)
+                .collect(Collectors.joining());
+        
+        var privateAirports = this.airports.stream()
+                .filter(airport -> !airport.isPrivate())
+                .map(Airport::showCorporates)
+                .collect(Collectors.joining());
+        
         return privateAirports + publicAirports;
     }
 }

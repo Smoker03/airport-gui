@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class Bag {
     private static Bag instance = null;
@@ -14,6 +12,7 @@ public class Bag {
     private final Map<String, Flight> flights;
     private final Map<String, Company> companies;
     private final Map<String, Airport> airports;
+    private final Map<String, Corporate> corporates;
     
     public static Bag getInstance() {
         if (instance == null) {
@@ -27,6 +26,7 @@ public class Bag {
         this.flights = new HashMap<>();
         this.companies = new HashMap<>();
         this.airports = new HashMap<>();
+        this.corporates = new HashMap<>();
     }
     
     // Flights
@@ -44,7 +44,7 @@ public class Bag {
     }
     
     public Company addCompany(Company company) {
-        return this.companies.put(company.getIdCompany(), company);
+        return this.companies.put(company.getId(), company);
     }
     
     // Airports
@@ -53,10 +53,20 @@ public class Bag {
     }
     
     public Airport addAirport(Airport airport) {
-        return this.airports.put(airport.getIdAirport(), airport);
+        return this.airports.put(airport.getId(), airport);
     }
     
-    public String consultAirport(String type) {
+    // Corporates
+    public Map<String, Corporate> getCorporate() {
+        return this.corporates;
+    }
+    
+    public Corporate addCorporate(Corporate corporate) {
+        return this.corporates.put(corporate.getId(), corporate);
+    }
+    
+    
+    public Object[] consultAirport(String type) {
         boolean PublicAirport = List.of("Aeropuerto publico", "Publico", "aeropuerto publico", "publico").contains(type);
         var found = new ArrayList<Airport>();
         for (var airport : airports.values()) {
@@ -70,26 +80,63 @@ public class Bag {
                 }
             }
         }
-        return found.stream().map(Airport -> Airport.getNameAirport() + "\n").collect(Collectors.joining());
-    }
-    
-    public String listFlightsByCompanyName(String companyName) {
-        var bringCompanies = airports.values().stream().flatMap(Airport -> Airport.getCompanies().stream()).toList();
-        var foundCompany = new ArrayList<Company>();
-        for (var company : bringCompanies) {
-            if (Objects.equals(companyName, company.getCompanyName())) {
-                foundCompany.add(company);
-            }
-        }
-        return "Nombre de la compañia:" + foundCompany.stream().map(Company::getCompanyName).collect(Collectors.joining()) 
-                + "Vuelos: " + flights.values().stream().map(Flight -> Flight.toString()).collect(Collectors.joining());
+        return found.toArray();
     }
     
     public Optional<Company> getCompanyByName(String companyName) {
         return this.companies
                 .values()
                 .stream()
-                .filter(company -> company.getCompanyName().equals(companyName))
+                .filter(company -> company.getName().equals(companyName))
                 .findFirst();
+    }
+    
+    public Object[] listFlightsByCompanyName(String companyName) {
+        var companyFound = this.getCompanyByName(companyName);
+        return companyFound.stream().flatMap(Company -> Company.getFlights().stream()).toArray();
+    }
+    
+    
+    
+    public Map<String, PrivateAirport> getPrivateAirport() {
+        var found = new HashMap<String, PrivateAirport>();
+        for(var privateAirport : airports.values()) {
+            if (privateAirport.getClass().getName().equals("source.PrivateAirport")) {
+                found.put(privateAirport.getId(), (PrivateAirport) privateAirport);
+            }
+        }
+    return found;
+    }
+    
+    public Object[] showCorporates() {
+        var privateAirport = new ArrayList<PrivateAirport>();
+        
+        for (Airport corporate : airports.values()) {
+            if(corporate.isPrivate()) {
+                privateAirport.add((PrivateAirport) corporate);
+                return privateAirport.stream().flatMap(PrivateAirport -> PrivateAirport.getCorporates().stream()).toArray();
+            } else {
+                return new Object[]{"El aeropuerto pertenece al gobierno"};
+            }
+        }
+        return null;
+    }
+    
+    public Object[] showCompaniesByAirportName(String airport) {
+        var companiesByAirportName = new ArrayList<Airport>();
+        for (var airportB : airports.values()) {
+            if (airportB.matchCompanyByAirportName(airport)) {
+                companiesByAirportName.add(airportB);
+            }
+        }
+        return companiesByAirportName.stream().flatMap(Airport -> Airport.getCompanies().stream()).toArray();
+    }
+    
+    public Optional<Flight> getFlightById(String id) {
+        return flights.values().stream().filter(flight -> flight.getIdFlights().equals(id)).findFirst();
+    }
+    
+    public Object[] showDestinations() {
+        return flights.values().stream().toArray();
     }
 }

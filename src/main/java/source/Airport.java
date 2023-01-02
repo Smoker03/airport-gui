@@ -4,26 +4,26 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Airport {
-    private final String idAirport;
-    private final String nameAirport;
+    private final String id;
+    private final String name;
     private final String cityLocated;
     private final String countryLocated;
     private final Set<Company> companies;
 
     public Airport(String idAirport, String nameAirport, String cityLocated, String countryLocated) {
-        this.idAirport = idAirport;
-        this.nameAirport = nameAirport;
+        this.id = idAirport;
+        this.name = nameAirport;
         this.cityLocated = cityLocated;
         this.countryLocated = countryLocated;
         this.companies = new HashSet<>();
     }
 
-    public String getIdAirport() {
-        return idAirport;
+    public String getId() {
+        return id;
     }
 
-    public String getNameAirport() {
-        return nameAirport;
+    public String getName() {
+        return name;
     }
 
     public String getCityLocated() {

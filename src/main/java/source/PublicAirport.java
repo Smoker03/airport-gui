@@ -16,12 +16,12 @@ public class PublicAirport extends Airport {
 
     @Override
     public boolean matchCompanyByAirportName(String nameAirport) {
-        return this.getNameAirport().contains(nameAirport);
+        return this.getName().contains(nameAirport);
     }
 
     @Override
     public String showCorporates() {
-        return "Aeropuerto: " + getNameAirport() + "\nPertenece a la empresa del gobierno, con una subencion de: " + this.subsidy;
+        return "Cuenta con una subencion del gobierno, con un monto de: " + this.subsidy;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class PublicAirport extends Airport {
 
     @Override
     public String companiesByAirportName() {
-        return "Nombre= " + this.getNameAirport()
+        return "Nombre= " + this.getName()
                 + "\n Companias:\n" + "Este aeropuerto pertenece al gobierno";
     }
 
@@ -42,13 +42,13 @@ public class PublicAirport extends Airport {
 
     @Override
     public String toString() {
-        return "IdAeropuerto= " + this.getIdAirport() + "| Nombre= " + this.getNameAirport() + "| Ciudad localizada= " + this.getCityLocated() + "| Pais localizado= " + this.getCountryLocated()
+        return "IdAeropuerto= " + this.getId() + "| Nombre= " + this.getName() + "| Ciudad localizada= " + this.getCityLocated() + "| Pais localizado= " + this.getCountryLocated()
                 + "| Companias:\n" + this.getCompanies().stream().map(Company::toString).collect(Collectors.joining()) + "Subsidio= "
                 + this.getSubsidy();
     }
     
     @Override
     public String toStringBag() {
-        return getIdAirport() + ": " + getNameAirport() + "(Aeropuerto publico)";
+        return getId() + ": " + getName();
     }
 }
